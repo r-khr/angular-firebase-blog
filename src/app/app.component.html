@@ -1,4 +1,16 @@
 <div>
   <mat-toolbar color="primary">{{title}}</mat-toolbar>
+
+  <div class="flex justify-between">
+    <app-blog class="w-30"
+      (saveBlog)="saveBlogEntry($event)"></app-blog>
+    <div class="pa3 w-50"
+      *ngFor="let blog of (blogs$ | async)">
+      <pre>{{ blog | json }}</pre>
+    </div>
+
+  </div>
+
+
   <router-outlet></router-outlet>
 </div>
